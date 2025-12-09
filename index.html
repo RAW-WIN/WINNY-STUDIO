@@ -8,6 +8,7 @@
         /* --- CSS VARIABLES & RESET --- */
         :root {
             --bg-paper: #fdfbf7;
+            --bg-white: #ffffff;
             --ink-black: #1a1a1a;
             --ink-wash: #555555;
             --seal-red: #b83b3b; 
@@ -37,11 +38,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px auto; /* Space below seal */
+            margin: 0 auto 15px auto;
             font-weight: bold;
             font-family: sans-serif;
             border-radius: 3px;
-            border: 2px solid #8b2a2a; /* Slightly darker red border */
+            border: 2px solid #8b2a2a;
             box-shadow: 0 4px 6px rgba(0,0,0,0.15);
         }
 
@@ -63,7 +64,7 @@
             width: 1px; 
             height: 40px; 
             background: var(--ink-black); 
-            margin: 0 auto 15px auto; /* Spacing between line and text */
+            margin: 0 auto 15px auto; 
         }
 
         /* --- NAVIGATION --- */
@@ -142,9 +143,74 @@
             font-style: italic;
         }
 
+        /* --- EXHIBITION SECTION --- */
+        .exhibition-section {
+            background-color: var(--bg-white);
+            padding: 5rem 1rem;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .exhibition-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-serif);
+        }
+        
+        .exhibition-desc {
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            color: var(--ink-wash);
+            font-size: 1.1rem;
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .event-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .event-caption {
+            padding: 20px;
+            background: #fff;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .event-caption h4 {
+            color: var(--seal-red);
+            font-size: 1rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         /* --- FOOTER --- */
         footer {
-            background: #111; color: #aaa; text-align: center; padding: 4rem 1rem; margin-top: 4rem;
+            background: #111; color: #aaa; text-align: center; padding: 4rem 1rem; margin-top: 0;
         }
     </style>
 </head>
@@ -155,19 +221,14 @@
     </nav>
 
     <header class="hero">
-        <!-- 1. The Seal -->
         <div class="seal">WIN</div>
-        
-        <!-- 2. The Vertical Line -->
         <div class="vertical-line"></div>
-        
-        <!-- 3. The Hand Painted Mark -->
         <div class="seal-mark">HAND PAINTED</div>
-        
         <h1>Ink, Void & Spirit</h1>
         <p>Original Chinese brush painting compositions featuring flora, fauna, and the delicate balance of nature.</p>
     </header>
 
+    <!-- MAIN ARTWORK GALLERY -->
     <div class="container">
         <div class="filter-bar">
             <button class="filter-btn active" onclick="filterGallery('all')">All Works</button>
@@ -176,9 +237,74 @@
         </div>
 
         <div class="gallery" id="gallery-grid">
-            <!-- Gallery items will be injected here by JavaScript -->
+            <!-- Gallery items injected by JS -->
         </div>
     </div>
+
+    <!-- NEW EXHIBITION SECTION -->
+    <section class="exhibition-section">
+        <div class="seal-mark">EVENTS</div>
+        <h2 class="exhibition-title">Gainesville Downtown Art Festival</h2>
+        <p class="exhibition-desc">
+            A wonderful weekend sharing art with the community. We were proud to raise funds for the <strong>UF Health Shands Children's Hospital</strong>.
+        </p>
+
+        <div class="event-grid">
+            <!-- Item 1: Donation Moment (Updated Text) -->
+            <div class="event-card">
+                <img src="donation.jpg" alt="Donation at UF Health Shands">
+                <div class="event-caption">
+                    <h4>Mission Accomplished</h4>
+                    <p>We were deeply honored to visit UF Health Shands Children’s Hospital and personally deliver the funds raised through our art sale. Our heartfelt thanks go to the Gainesville community, whose generosity is helping bring hope and support to children and families in need.</p>
+                </div>
+            </div>
+
+            <!-- Item 2: The Team -->
+            <div class="event-card">
+                <img src="IMG_2778.jpg" alt="Winny and Artists">
+                <div class="event-caption">
+                    <h4>The Artists</h4>
+                    <p>Presenting our latest framed ink works.</p>
+                </div>
+            </div>
+
+            <!-- Item 3: Charity Fan (Lychee) -->
+            <div class="event-card">
+                <img src="IMG_2725.jpg" alt="Lychee Fan">
+                <div class="event-caption">
+                    <h4>Charity Fundraiser</h4>
+                    <p>Hand-painted Lychee fan. 100% proceeds to charity.</p>
+                </div>
+            </div>
+
+             <!-- Item 4: Lotus Fan -->
+             <div class="event-card">
+                <img src="IMG_2726.jpg" alt="Lotus Fan">
+                <div class="event-caption">
+                    <h4>Summer Breeze</h4>
+                    <p>Lotus and Fish composition on a traditional round fan.</p>
+                </div>
+            </div>
+
+            <!-- Item 5: Booth Scene -->
+            <div class="event-card">
+                <img src="IMG_2745.jpg" alt="Festival Booth">
+                <div class="event-caption">
+                    <h4>Community</h4>
+                    <p>Sharing the joy of art at our festival booth.</p>
+                </div>
+            </div>
+
+            <!-- Item 6: Interaction -->
+            <div class="event-card">
+                <img src="IMG_2767.jpg" alt="Art Lovers">
+                <div class="event-caption">
+                    <h4>Art & Connection</h4>
+                    <p>Visitors exploring the collection on a sunny afternoon.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2025 Winny's Ink & Void Studio</p>
@@ -266,4 +392,3 @@
     </script>
 </body>
 </html>
-
